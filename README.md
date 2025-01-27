@@ -9,11 +9,6 @@ Khush Patel
 Assignment 1: Development of `Client` and `BankAccount` Classes
 - This assignment focuses on creating two foundational classes: `Client`, which manages client information, and `BankAccount`, which handles client banking transactions. The classes must implement encapsulation and validation to ensure data integrity and security.
 
-## Encapsulation
-
-Sure! Here's a concise and humanized explanation of encapsulation for your README:
-
----
 
 ## Encapsulation
 
