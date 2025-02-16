@@ -9,6 +9,9 @@ Khush Patel
 Assignment 1: Development of `Client` and `BankAccount` Classes
 - This assignment focuses on creating two foundational classes: `Client`, which manages client information, and `BankAccount`, which handles client banking transactions. The classes must implement encapsulation and validation to ensure data integrity and security.
 
+Assignment 2: Extending the BankAccount Class with Inheritance and Polymorphism
+- This assignment builds upon the BankAccount class from Assignment 1 by introducing three specialized account types: ChequingAccount, InvestmentAccount, and SavingsAccount. Each subclass inherits from the BankAccount class and implements its own unique logic for calculating service charges, demonstrating polymorphism.
+
 
 ## Encapsulation
 
