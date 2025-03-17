@@ -4,7 +4,7 @@ of the Observer Pattern.
 """
 __author__ = "ACE Faculty"
 __version__ = "1.0.0"
-__credits__ = "Khush patel"
+__credits__ = "Khush Patel"
 
 # 1. Import all BankAccount types using the bank_account package
 # Import date
@@ -55,26 +55,53 @@ savings_account2 = SavingsAccount(54321, 1002, 1500.0, date.today(), 300.0)
 # ensure the methods are invoked using proper exception handling such 
 # that any exception messages are printed to the console.
 
+
 # Transactions for ChequingAccount
 try:
+    print(f"Balance before deposit for ChequingAccount: ${chequing_account.balance:.2f}")
     chequing_account.deposit(200.0)  # Normal transaction (no notification)
+    print(f"Balance after deposit for ChequingAccount: ${chequing_account.balance:.2f}")
+
+    print(f"Balance before withdrawal for ChequingAccount: ${chequing_account.balance:.2f}")
     chequing_account.withdraw(50.0)   # Normal transaction (no notification)
+    print(f"Balance after withdrawal for ChequingAccount: ${chequing_account.balance:.2f}")
+
+    print(f"Balance before withdrawal for ChequingAccount: ${chequing_account.balance:.2f}")
     chequing_account.withdraw(1000.0) # Large transaction (notification)
+    print(f"Balance after withdrawal for ChequingAccount: ${chequing_account.balance:.2f}")
 except Exception as e:
     print(f"Error during ChequingAccount transaction: {e}")
 
+
 # Transactions for SavingsAccount
 try:
+    print(f"Balance before deposit for SavingsAccount: ${savings_account.balance:.2f}")
     savings_account.deposit(100.0)    # Normal transaction (no notification)
+    print(f"Balance after deposit for SavingsAccount: ${savings_account.balance:.2f}")
+
+    print(f"Balance before withdrawal for SavingsAccount: ${savings_account.balance:.2f}")
     savings_account.withdraw(50.0)    # Normal transaction (no notification)
+    print(f"Balance after withdrawal for SavingsAccount: ${savings_account.balance:.2f}")
+
+    print(f"Balance before withdrawal for SavingsAccount: ${savings_account.balance:.2f}")
     savings_account.withdraw(300.0)   # Low balance (notification)
+    print(f"Balance after withdrawal for SavingsAccount: ${savings_account.balance:.2f}")
 except Exception as e:
     print(f"Error during SavingsAccount transaction: {e}")
 
+
 # Transactions for SavingsAccount2
 try:
+    print(f"Balance before deposit for SavingsAccount2: ${savings_account2.balance:.2f}")
     savings_account2.deposit(500.0)   # Normal transaction (no notification)
+    print(f"Balance after deposit for SavingsAccount2: ${savings_account2.balance:.2f}")
+
+    print(f"Balance before withdrawal for SavingsAccount2: ${savings_account2.balance:.2f}")
     savings_account2.withdraw(200.0)  # Normal transaction (no notification)
+    print(f"Balance after withdrawal for SavingsAccount2: ${savings_account2.balance:.2f}")
+
+    print(f"Balance before withdrawal for SavingsAccount2: ${savings_account2.balance:.2f}")
     savings_account2.withdraw(2000.0) # Large transaction (notification)
+    print(f"Balance after withdrawal for SavingsAccount2: ${savings_account2.balance:.2f}")
 except Exception as e:
     print(f"Error during SavingsAccount2 transaction: {e}")

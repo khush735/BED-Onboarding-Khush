@@ -1,5 +1,10 @@
 from abc import ABC
 from patterns.observer.subject import Subject
+from datetime import date
+print(date)
+import os
+print(os.getcwd())
+
 
 class BankAccount(Subject, ABC):
     """
