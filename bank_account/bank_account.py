@@ -1,31 +1,36 @@
-class BankAccount:
+from abc import ABC
+from patterns.observer.subject import Subject
+
+class BankAccount(Subject, ABC):
     """
     A class to represent a bank account with basic operations such as deposits, withdrawals, and balance management.
+    This class also acts as a Subject in the Observer Pattern to notify clients of significant account activities.
 
     Attributes:
         account_number (int): A unique identifier for the bank account.
         client_number (int): A unique identifier for the account holder.
         balance (float): The current balance in the account.
-
-    Methods:
-        deposit(amount): Adds a specified amount to the account balance.
-        withdraw(amount): Reduces the account balance by a specified amount, subject to sufficient funds.
-        update_balance(amount): Adjusts the balance by a given amount, either positive or negative.
-        __str__(): Returns a string with the account's number and current balance.
+        date_created (date): The date the account was created.
     """
 
-    def __init__(self, account_number: int, client_number: int, balance: float):
+    # Constants for Observer Pattern notifications
+    LARGE_TRANSACTION_THRESHOLD: float = 9999.99
+    LOW_BALANCE_LEVEL: float = 50.0
+
+    def __init__(self, account_number: int, client_number: int, balance: float, date_created: date):
         """
-        Initializes the bank account with an account number, client number, and an initial balance.
+        Initializes the bank account with an account number, client number, an initial balance, and a creation date.
 
         Args:
             account_number (int): The number associated with the account.
             client_number (int): The ID associated with the account holder.
             balance (float): The initial balance to start the account with.
+            date_created (date): The date the account was created.
 
         Raises:
             ValueError: If either the account number or client number is not an integer, or if the balance is not a valid float.
         """
+        super().__init__()  # Initialize the Subject class
         # Ensuring account number is an integer
         if not isinstance(account_number, int):
             raise ValueError("The account number must be an integer.")
@@ -42,6 +47,9 @@ class BankAccount:
         except ValueError:
             self._balance = 0.0
 
+        # Assigning the creation date
+        self._date_created = date_created
+
     @property
     def account_number(self) -> int:
         """Returns the account's unique identifier."""
@@ -57,9 +65,14 @@ class BankAccount:
         """Returns the current balance of the account."""
         return self._balance
 
+    @property
+    def date_created(self) -> date:
+        """Returns the date the account was created."""
+        return self._date_created
+
     def update_balance(self, amount: float):
         """
-        Updates the account balance by a specified amount.
+        Updates the account balance by a specified amount and notifies observers if necessary.
 
         Args:
             amount (float): The amount to add (or subtract if negative) from the balance.
@@ -67,6 +80,15 @@ class BankAccount:
         try:
             amount = float(amount)
             self._balance += amount
+
+            # Notify observers if the balance drops below the minimum threshold
+            if self._balance < self.LOW_BALANCE_LEVEL:
+                self.notify(f"Low balance warning ${self._balance:.2f}: on account {self._account_number}.")
+
+            # Notify observers if the transaction amount exceeds the large transaction threshold
+            if abs(amount) > self.LARGE_TRANSACTION_THRESHOLD:
+                self.notify(f"Large transaction ${amount:.2f}: on account {self._account_number}.")
+
         except ValueError:
             pass  # Ignore invalid amount if it's not a number
 
