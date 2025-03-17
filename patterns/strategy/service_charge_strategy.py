@@ -6,4 +6,13 @@ class ServiceChargeStrategy(ABC):
 
     @abstractmethod
     def calculate_service_charges(self, account: BankAccount) -> float:
+        """
+        Calculate the service charges for a given bank account.
+
+        Args:
+            account (BankAccount): The bank account for which to calculate the service charges.
+
+        Returns:
+            float: The calculated service charges for the account.
+        """
         pass
