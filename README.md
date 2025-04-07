@@ -12,8 +12,6 @@ Assignment 1: Development of `Client` and `BankAccount` Classes
 Assignment 2: Extending the BankAccount Class with Inheritance and Polymorphism
 - This assignment builds upon the BankAccount class from Assignment 1 by introducing three specialized account types: ChequingAccount, InvestmentAccount, and SavingsAccount. Each subclass inherits from the BankAccount class and implements its own unique logic for calculating service charges, demonstrating polymorphism.
 
-<<<<<<< HEAD
-=======
 Assignment 3: Applying Design Patterns (Strategy and Observer Patterns).
 - Strategy Pattern:
     Service charge logic is decoupled into strategy classes:
@@ -27,8 +25,6 @@ Enables easy addition of new account types and service charge policies.
    1) Notifies clients of significant account   activities (e.g., large transactions, low balances) via simulated emails.
 
    2) BankAccount acts as the subject, and Client acts as the observer.
-
->>>>>>> assignment_3
 
 ## Encapsulation
 
