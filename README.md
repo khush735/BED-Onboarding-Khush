@@ -65,12 +65,14 @@ Access to these attributes is controlled via public getter methods and controlle
 
 ## Event-Driven Programming Paradigm
 
-This application demonstrates the **Event-Driven Programming Paradigm** using PySide6. User interface widgets such as buttons, input fields, and tables emit signals based on user actions (e.g., clicks or text changes).
+This application uses the Event-Driven Programming Paradigm to make the program interactive. It means the system responds to things the user does — like clicking a button, typing in a text box, or selecting an item in a table.
 
-These signals are connected to slot methods (event handlers) that perform real-time logic like:
-- Searching for clients
-- Displaying account details
-- Opening a transaction dialog
-- Updating account balances
+# For example:
 
-This paradigm allows the system to behave interactively and responsively, reacting to events rather than following a fixed execution order. It leads to a user-friendly and maintainable application design.
+- When a user enters a client number and clicks "Lookup", the program finds and shows the client’s information.
+
+- When they click on an account, a new window opens for deposits or withdrawals.
+
+- After a transaction, the updated balance is shown    right away.
+
+Behind the scenes, these actions send "signals" to the program, which then runs the right function (called a "slot") to handle that action. This makes the program feel smooth and responsive, just like real banking apps.
